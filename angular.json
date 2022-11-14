@@ -3,23 +3,29 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ui-theme": {
+    "@throwjs/themify": {
       "projectType": "library",
-      "root": "projects/ui-theme",
-      "sourceRoot": "projects/ui-theme/src",
-      "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/throwjs/themify",
+      "sourceRoot": "projects/throwjs/themify/src",
+      "prefix": "themify",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ui-theme/ng-package.json"
+            "tsConfig": "projects/throwjs/themify/tsconfig.lib.json",
+            "project": "projects/throwjs/themify/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ui-theme/tsconfig.lib.prod.json"
+              "tsConfig": "projects/throwjs/themify/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ui-theme/tsconfig.lib.json"
+              "tsConfig": "projects/throwjs/themify/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,9 +33,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ui-theme/src/test.ts",
-            "tsConfig": "projects/ui-theme/tsconfig.spec.json",
-            "karmaConfig": "projects/ui-theme/karma.conf.js"
+            "main": "projects/throwjs/themify/src/test.ts",
+            "tsConfig": "projects/throwjs/themify/tsconfig.spec.json",
+            "karmaConfig": "projects/throwjs/themify/karma.conf.js"
           }
         }
       }
