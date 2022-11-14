@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiThemeComponent } from './ui-theme.component';
+import { UiThemeComponent } from './themify.component';
 
 describe('UiThemeComponent', () => {
   let component: UiThemeComponent;
@@ -8,9 +8,8 @@ describe('UiThemeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiThemeComponent ]
-    })
-    .compileComponents();
+      declarations: [UiThemeComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UiThemeComponent);
     component = fixture.componentInstance;

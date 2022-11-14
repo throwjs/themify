@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UiThemeService } from './ui-theme.service';
+import { UiThemeService } from './themify.service';
 
 describe('UiThemeService', () => {
   let service: UiThemeService;

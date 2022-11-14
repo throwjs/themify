@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ui-theme",
+  "dest": "../../dist/themify",
   "lib": {
     "entryFile": "src/public-api.ts"
   }
