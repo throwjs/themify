@@ -20,7 +20,6 @@
     "module": "es2020",
     "lib": ["es2020", "dom"],
     "paths": {
-      "themify": ["dist/themify"],
       "@throwjs/themify/*": [
         "projects/throwjs/themify/src/lib/components/*/public-api",
         "projects/throwjs/themify/src/lib/*/public-api"
