@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiThemeComponent } from './ui-theme.component';
+import { ThemifyHeaderComponent } from './themify-header.component';
 
-describe('UiThemeComponent', () => {
-  let component: UiThemeComponent;
-  let fixture: ComponentFixture<UiThemeComponent>;
+describe('ThemifyHeaderComponent', () => {
+  let component: ThemifyHeaderComponent;
+  let fixture: ComponentFixture<ThemifyHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiThemeComponent ]
+      imports: [ ThemifyHeaderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UiThemeComponent);
+    fixture = TestBed.createComponent(ThemifyHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
