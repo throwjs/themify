@@ -13,7 +13,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
   templateUrl: './themify-layout.component.html',
   styleUrls: ['./themify-layout.component.scss'],
 })
-export class LayoutComponent implements OnInit {
+export class ThemifyLayoutComponent implements OnInit {
   config!: IConfig | null;
 
   isMobile: boolean;
