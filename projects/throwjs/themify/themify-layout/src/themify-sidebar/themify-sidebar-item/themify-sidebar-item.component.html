@@ -1,0 +1,31 @@
+<ng-container *ngIf="item.route; else buttonRoute">
+  <a [routerLink]="item.route">
+    <ng-container [ngTemplateOutlet]="innerItem"></ng-container>
+  </a>
+</ng-container>
+<ng-template #buttonRoute>
+  <button>
+    <ng-container [ngTemplateOutlet]="innerItem"></ng-container>
+  </button>
+</ng-template>
+
+<ng-template #innerItem>
+  <themify-icon
+    [size]="20"
+    *ngIf="item.iconName"
+    [name]="item.iconName"
+  ></themify-icon>
+  <span class="navigation__link-title">{{ item.title }}</span>
+</ng-template>
+
+<ul *ngIf="item?.children && item.children?.length" [class.show]="expanded">
+  <li
+    themify-sidebar-item
+    routerLinkActive="navigation__link-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    *ngFor="let subItem of item.children"
+    [item]="subItem"
+  >
+    <a [routerLink]="subItem.route"></a>
+  </li>
+</ul>

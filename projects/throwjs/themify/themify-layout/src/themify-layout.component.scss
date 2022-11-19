@@ -1,0 +1,25 @@
+#layout {
+  display: flex;
+  background-color: #161d31;
+  height: 100vh;
+  overflow: hidden;
+
+  #content {
+    flex: 1;
+    padding: 2rem;
+    overflow: auto;
+
+    &.content__wrapper {
+      transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      margin-left: 80px;
+
+      &-expanded {
+        margin-left: 260px;
+      }
+
+      &-mobile {
+        margin-left: 0px;
+      }
+    }
+  }
+}
