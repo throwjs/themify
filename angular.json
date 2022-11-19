@@ -65,6 +65,7 @@
               "projects/dashboard/src/assets"
             ],
             "styles": [
+              "projects/throwjs/themify/assets/styles/styles.scss",
               "projects/dashboard/src/styles.scss"
             ],
             "scripts": []
@@ -133,6 +134,7 @@
               "projects/dashboard/src/assets"
             ],
             "styles": [
+              "projects/throwjs/themify/assets/styles/styles.scss",
               "projects/dashboard/src/styles.scss"
             ],
             "scripts": []
