@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint --config projects/throwjs/themify/.eslintrc.json --ext .ts projects/throwjs/themify/",
-    "lint:fix": "pnpm run lint -- --fix",
+    "lint:fix": "pnpm run lint --fix",
     "prettier": "prettier --config ./.prettierrc --list-different --write ./projects/throwjs/themify"
   },
   "private": true,
