@@ -3,13 +3,24 @@ export interface IConfigApp {
   image?: string;
 }
 
-export interface IConfigLayout {}
+export interface IConfigLayout {
+  sidebar: IConfigLayoutSidebar;
+  theme: IConfigLayoutTheme;
+  header: IConfigLayoutHeader;
+}
 
 export interface IConfigLayoutSidebar {
   collapsed: boolean;
 }
 
-export type IConfigLayoutTheme = 'dark' | 'ligth';
+const THEME_STATES = ['dark', 'ligth'] as const;
+
+export enum ThemeEnum {
+  DARK = 'dark',
+  LIGTH = 'ligth',
+}
+
+export type IConfigLayoutTheme = typeof THEME_STATES[number];
 
 export type HeaderType = 'static' | 'sticky' | 'floating';
 export interface IConfigLayoutHeader {
@@ -18,11 +29,7 @@ export interface IConfigLayoutHeader {
 
 export interface IConfig {
   application: IConfigApp;
-  layout: {
-    sidebar: IConfigLayoutSidebar;
-    theme: IConfigLayoutTheme;
-    header: IConfigLayoutHeader;
-  };
+  layout: IConfigLayout;
 }
 
 export type DeepPartial<T> = {

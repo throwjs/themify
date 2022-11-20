@@ -5,6 +5,7 @@ import { ThemifyLayoutComponent } from '@throwjs/themify/themify-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@throwjs/themify/core';
+import { ThemeEnum } from '@throwjs/themify/interfaces';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { CoreModule } from '@throwjs/themify/core';
         sidebar: {
           collapsed: true,
         },
-        theme: 'dark',
+        theme: ThemeEnum.DARK,
       },
     }),
     ThemifyLayoutComponent,

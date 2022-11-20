@@ -1,6 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { ConfigService } from '@throwjs/themify/core';
 import { IConfig } from '@throwjs/themify/interfaces';
 import { ThemifyHeaderComponent } from './themify-header';
@@ -20,7 +20,9 @@ export class ThemifyLayoutComponent implements OnInit {
 
   constructor(
     private _configService: ConfigService,
-    private _breakpointObserver: BreakpointObserver
+    private _breakpointObserver: BreakpointObserver,
+    @Inject(DOCUMENT) private document: Document,
+    private _renderer2: Renderer2
   ) {
     this.config = null;
     this.isMobile = false;
@@ -29,7 +31,7 @@ export class ThemifyLayoutComponent implements OnInit {
   ngOnInit(): void {
     this._configService.configObservable$.subscribe((config) => {
       this.config = config;
-      console.log(config);
+      this.changeTheme();
     });
 
     this._breakpointObserver
@@ -43,5 +45,18 @@ export class ThemifyLayoutComponent implements OnInit {
           this.isMobile = true;
         }
       });
+  }
+
+  changeTheme(): void {
+    const classTheme = this.config?.layout.theme || 'ligth';
+
+    this._renderer2.removeClass(this.document.body, 'dark');
+    this._renderer2.removeClass(this.document.body, 'ligth');
+
+    // this._renderer2.
+
+    // this._renderer2.removeClass(this.document.body, classTheme)
+
+    this._renderer2.addClass(this.document.body, classTheme);
   }
 }
