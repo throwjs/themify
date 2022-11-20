@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -10,13 +10,13 @@ import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
 import { SidebarService } from '@throwjs/themify/services';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[themify-sidebar-item]',
   standalone: true,
   imports: [CommonModule, RouterModule, ThemifyIconComponent],
   templateUrl: './themify-sidebar-item.component.html',
   styleUrls: ['./themify-sidebar-item.component.scss'],
   host: {
-    class: 'navigation__link',
     '(click)': 'toggleExpanded($event)',
     '[class.has__children]': 'item.children?.length',
     '[class.navigation__link-expanded]': 'expanded',
@@ -27,9 +27,7 @@ export class ThemifySidebarItemComponent implements OnInit {
 
   expanded: boolean;
 
-  private _router = inject(Router);
-
-  constructor(private _sidebarService: SidebarService) {
+  constructor(private _sidebarService: SidebarService, private _router: Router) {
     this.item = {
       iconName: '',
       title: '',

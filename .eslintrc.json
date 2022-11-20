@@ -23,11 +23,13 @@
         "@angular-eslint/component-selector": [
           "error",
           {
-            "type": "element",
+            "type": ["element", "attribute"],
             "prefix": "themify",
             "style": "kebab-case"
           }
         ],
+
+        "@angular-eslint/no-host-metadata-property": "off",
         "import/no-extraneous-dependencies": "off",
         "import/prefer-default-export": "off",
         "no-underscore-dangle": "off",
@@ -71,3 +73,4 @@
     }
   ]
 }
+

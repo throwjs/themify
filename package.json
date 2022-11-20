@@ -9,7 +9,20 @@
     "test": "ng test",
     "lint": "eslint --config projects/throwjs/themify/.eslintrc.json --ext .ts projects/throwjs/themify/",
     "lint:fix": "pnpm run lint --fix",
-    "prettier": "prettier --config ./.prettierrc --list-different --write ./projects/throwjs/themify"
+    "prettier": "prettier --config ./.prettierrc --list-different --write ./projects/throwjs/themify",
+    "prettier:check": "prettier --config .prettierrc --check \"./projects/throwjs/themify/**/*.{ts,css,html}\"",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "projects/throwjs/themify/**/*.{ts,scss,html}": [
+      "pnpm run prettier",
+      "pnpm run lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "private": true,
   "dependencies": {
@@ -43,12 +56,14 @@
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "lint-staged": "^13.0.3",
     "ng-packagr": "^14.2.0",
     "prettier": "^2.7.1",
     "prettier-eslint": "^15.0.1",
