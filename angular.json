@@ -37,6 +37,15 @@
             "tsConfig": "projects/throwjs/themify/tsconfig.spec.json",
             "karmaConfig": "projects/throwjs/themify/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/throwjs/themify/**/*.ts",
+              "projects/throwjs/themify/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -138,6 +147,15 @@
               "projects/dashboard/src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/dashboard/**/*.ts",
+              "projects/dashboard/**/*.html"
+            ]
           }
         }
       }

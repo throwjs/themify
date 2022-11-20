@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build:library": "ng build --project=@throwjs/themify",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "eslint -c .eslintrc.json --ext .ts ./projects/throwjs/themify",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --config ./.prettierrc --list-different --write ./projects/throwjs/themify"
   },
   "private": true,
   "dependencies": {
@@ -27,9 +30,19 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.9",
+    "@angular-eslint/builder": "15.0.0-alpha.5",
+    "@angular-eslint/eslint-plugin": "15.0.0-alpha.5",
+    "@angular-eslint/eslint-plugin-template": "15.0.0-alpha.5",
+    "@angular-eslint/schematics": "15.0.0-alpha.5",
+    "@angular-eslint/template-parser": "15.0.0-alpha.5",
     "@angular/cli": "~14.2.7",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -37,6 +50,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^14.2.0",
+    "prettier": "^2.7.1",
+    "prettier-eslint": "^15.0.1",
     "typescript": "~4.7.2"
   }
 }
