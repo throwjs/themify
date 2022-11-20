@@ -1,9 +1,4 @@
-import {
-  ModuleWithProviders,
-  NgModule,
-  Optional,
-  SkipSelf,
-} from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { IConfig } from '@throwjs/themify/interfaces';
 import { CORE_CONFIG_TOKEN } from './core-token';
 

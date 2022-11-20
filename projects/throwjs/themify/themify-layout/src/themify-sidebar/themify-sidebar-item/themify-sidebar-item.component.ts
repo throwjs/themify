@@ -39,15 +39,9 @@ export class ThemifySidebarItemComponent implements OnInit {
 
   ngOnInit(): void {
     this._router.events
-      .pipe(
-        filter(
-          (event): event is NavigationEnd => event instanceof NavigationEnd
-        )
-      )
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((route: NavigationEnd) => {
-        this._confirmUrlInChildren(this.item, route.url)
-          ? this._open()
-          : this._close();
+        this._confirmUrlInChildren(this.item, route.url) ? this._open() : this._close();
       });
 
     this._sidebarService.onSelectedItem$.subscribe((clickedItem) => {
@@ -131,8 +125,7 @@ export class ThemifySidebarItemComponent implements OnInit {
       }
 
       // If child.url is same as provided url
-      if (child.route && (child.route === url || url.includes(child.route)))
-        return true;
+      if (child.route && (child.route === url || url.includes(child.route))) return true;
     }
 
     return false;

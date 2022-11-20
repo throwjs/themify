@@ -8,9 +8,8 @@ describe('ThemifyHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ ThemifyHeaderComponent ]
-    })
-    .compileComponents();
+      imports: [ThemifyHeaderComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ThemifyHeaderComponent);
     component = fixture.componentInstance;

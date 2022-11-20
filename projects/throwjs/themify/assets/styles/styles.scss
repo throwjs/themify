@@ -1,8 +1,8 @@
-@use "./themes/dark/dark-theme.scss" as dark;
-@use "./themes/ligth/ligth-theme.scss" as ligth;
+@use './themes/dark/dark-theme.scss' as dark;
+@use './themes/ligth/ligth-theme.scss' as ligth;
 
-@import "./theme-bootstrap.scss";
-@import "./montserrat-font.css";
+@import './theme-bootstrap.scss';
+@import './montserrat-font.css';
 
 html {
   font-size: 14px;
@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   color: #d0d2d6;
   // color: white;
