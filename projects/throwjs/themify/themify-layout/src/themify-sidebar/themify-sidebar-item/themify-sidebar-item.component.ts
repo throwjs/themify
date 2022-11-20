@@ -17,6 +17,7 @@ import { SidebarService } from '@throwjs/themify/services';
   templateUrl: './themify-sidebar-item.component.html',
   styleUrls: ['./themify-sidebar-item.component.scss'],
   host: {
+    class: 'navigation__link',
     '(click)': 'toggleExpanded($event)',
     '[class.has__children]': 'item.children?.length',
     '[class.navigation__link-expanded]': 'expanded',
