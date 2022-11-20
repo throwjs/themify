@@ -13,13 +13,13 @@ import {
 import { RouterModule } from '@angular/router';
 
 import { IConfigApp, INavSection } from '@throwjs/themify/interfaces';
-import { SidebarService } from '@throwjs/themify/services';
+import { MenuService, SidebarService } from '@throwjs/themify/services';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ThemifySidebarItemComponent } from './themify-sidebar-item';
 import { ThemifySidebarSectionComponent } from './themify-sidebar-section';
 import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
 import { ConfigService } from '@throwjs/themify/core';
-import { distinctUntilKeyChanged, map } from 'rxjs';
+import { distinctUntilKeyChanged, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'themify-sidebar',
@@ -50,7 +50,7 @@ export class ThemifySidebarComponent implements OnInit, OnChanges {
 
   @ViewChild('sidebar') sidebarRef!: ElementRef<HTMLDivElement>;
 
-  menu: INavSection[];
+  menu$: Observable<INavSection[]>;
 
   isExpandedOnHover: boolean;
 
@@ -60,256 +60,14 @@ export class ThemifySidebarComponent implements OnInit, OnChanges {
 
   constructor(
     private _sidebarService: SidebarService,
-    private _configService: ConfigService
+    private _configService: ConfigService,
+    private _menuService: MenuService
   ) {
     this.isCollapsed = true;
     this.isExpandedOnHover = false;
     this.isMobile = false;
     this.sidebarOpenInMobile = false;
-    this.menu = [
-      {
-        sectionItems: [
-          {
-            title: 'Dashboard 1',
-            iconName: 'home',
-            children: [
-              {
-                title: 'eCommerce',
-                iconName: 'circle',
-                children: [
-                  {
-                    title: 'Test',
-                    iconName: 'test',
-                    route: '/dashboard/test',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            title: 'Dashboard 2',
-            iconName: 'home',
-            children: [
-              {
-                title: 'Analytics',
-                iconName: 'circle',
-                route: '/dashboard/analytics',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        sectionName: 'Menus',
-        sectionItems: [
-          {
-            title: 'Menu Levels',
-            iconName: 'menu',
-            children: [
-              {
-                title: 'Second Level',
-
-                iconName: 'circle',
-                route: '#',
-              },
-              {
-                title: 'Second Level',
-                iconName: 'circle',
-                children: [
-                  {
-                    title: 'Third Level',
-                    route: '#',
-                  },
-                  {
-                    title: 'Third Level',
-                    route: '#',
-                    children: [
-                      {
-                        title: 'Third Level',
-                        route: '#',
-                      },
-                      {
-                        title: 'Third Level',
-                        route: '#',
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        sectionName: 'APP & PAGES',
-        sectionItems: [
-          {
-            title: 'Email',
-            iconName: 'mail',
-          },
-          {
-            title: 'Chat',
-            iconName: 'message-square',
-          },
-          {
-            title: 'Todo',
-            iconName: 'check-square',
-          },
-          {
-            title: 'Calendar',
-            iconName: 'calendar',
-          },
-          {
-            title: 'Pages',
-            iconName: 'file-text',
-            children: [
-              {
-                title: 'Authentication',
-              },
-            ],
-          },
-          {
-            title: 'Email',
-            iconName: 'mail',
-          },
-          {
-            title: 'Chat',
-            iconName: 'message-square',
-          },
-          {
-            title: 'Todo',
-            iconName: 'check-square',
-          },
-          {
-            title: 'Calendar',
-            iconName: 'calendar',
-          },
-          {
-            title: 'Pages',
-            iconName: 'file-text',
-            children: [
-              {
-                title: 'Authentication',
-              },
-            ],
-          },
-        ],
-      },
-      // {
-      //   sectionName: 'APP & PAGES',
-      //   sectionItems: [
-      //     {
-      //       title: 'Email',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Chat',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Todo',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Calendar',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Pages',
-      //       iconName: 'pages',
-      //       children: [
-      //         {
-      //           title: 'Authentication',
-      //           iconName: 'test',
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: 'Email',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Chat',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Todo',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Calendar',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Pages',
-      //       iconName: 'pages',
-      //       children: [
-      //         {
-      //           title: 'Authentication',
-      //           iconName: 'test',
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
-      // {
-      //   sectionName: 'APP & PAGES',
-      //   sectionItems: [
-      //     {
-      //       title: 'Email',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Chat',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Todo',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Calendar',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Pages',
-      //       iconName: 'pages',
-      //       children: [
-      //         {
-      //           title: 'Authentication',
-      //           iconName: 'test',
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: 'Email',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Chat',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Todo',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Calendar',
-      //       iconName: 'pages',
-      //     },
-      //     {
-      //       title: 'Pages',
-      //       iconName: 'pages',
-      //       children: [
-      //         {
-      //           title: 'Authentication',
-      //           iconName: 'test',
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
-    ];
+    this.menu$ = new Observable();
     this.app = null;
   }
 
@@ -317,6 +75,8 @@ export class ThemifySidebarComponent implements OnInit, OnChanges {
     this._sidebarService.sidebarIsOpenInMobile$.subscribe(
       (isOpen) => (this.sidebarOpenInMobile = isOpen)
     );
+
+    this.menu$ = this._menuService.menu$;
 
     this._configService.configObservable$
       .pipe(

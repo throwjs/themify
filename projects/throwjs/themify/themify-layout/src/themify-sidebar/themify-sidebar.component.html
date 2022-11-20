@@ -101,7 +101,7 @@
   </div>
   <ng-scrollbar>
     <ul class="navigation">
-      <ng-container *ngFor="let section of menu">
+      <ng-container *ngFor="let section of menu$ | async">
         <li
           themify-sidebar-section
           *ngIf="section.sectionName"
