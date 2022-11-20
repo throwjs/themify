@@ -12,12 +12,14 @@ import {
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { INavSection } from '@throwjs/themify/interfaces';
+import { IConfigApp, INavSection } from '@throwjs/themify/interfaces';
 import { SidebarService } from '@throwjs/themify/services';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ThemifySidebarItemComponent } from './themify-sidebar-item';
 import { ThemifySidebarSectionComponent } from './themify-sidebar-section';
 import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
+import { ConfigService } from '@throwjs/themify/core';
+import { distinctUntilKeyChanged, map } from 'rxjs';
 
 @Component({
   selector: 'themify-sidebar',
@@ -54,7 +56,12 @@ export class ThemifySidebarComponent implements OnInit, OnChanges {
 
   sidebarOpenInMobile: boolean;
 
-  constructor(private _sidebarService: SidebarService) {
+  app: IConfigApp | null;
+
+  constructor(
+    private _sidebarService: SidebarService,
+    private _configService: ConfigService
+  ) {
     this.isCollapsed = true;
     this.isExpandedOnHover = false;
     this.isMobile = false;
@@ -303,12 +310,22 @@ export class ThemifySidebarComponent implements OnInit, OnChanges {
       //   ],
       // },
     ];
+    this.app = null;
   }
 
   ngOnInit(): void {
     this._sidebarService.sidebarIsOpenInMobile$.subscribe(
       (isOpen) => (this.sidebarOpenInMobile = isOpen)
     );
+
+    this._configService.configObservable$
+      .pipe(
+        distinctUntilKeyChanged('application'),
+        map((config) => config.application)
+      )
+      .subscribe((app) => {
+        this.app = app;
+      });
   }
 
   ngOnChanges(): void {

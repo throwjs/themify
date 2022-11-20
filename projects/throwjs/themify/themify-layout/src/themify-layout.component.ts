@@ -1,10 +1,10 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '@throwjs/themify/core';
+import { IConfig } from '@throwjs/themify/interfaces';
 import { ThemifyHeaderComponent } from './themify-header';
 import { ThemifySidebarComponent } from './themify-sidebar';
-import { IConfig } from '@throwjs/themify/interfaces';
-import { ConfigService } from '@throwjs/themify/core';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'themify-layout',

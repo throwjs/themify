@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LayoutComponent } from '@throwjs/themify/themify-layout';
+import { ThemifyLayoutComponent } from '@throwjs/themify/themify-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,7 @@ import { CoreModule } from '@throwjs/themify/core';
     AppRoutingModule,
     CoreModule.forRoot({
       application: {
-        name: 'Layouti',
+        name: 'Themify',
       },
       layout: {
         header: {
@@ -25,7 +25,7 @@ import { CoreModule } from '@throwjs/themify/core';
         theme: 'dark',
       },
     }),
-    LayoutComponent,
+    ThemifyLayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
