@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -10,6 +10,7 @@ import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
 import { SidebarService } from '@throwjs/themify/services';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[themify-sidebar-item]',
   standalone: true,
   imports: [CommonModule, RouterModule, ThemifyIconComponent],
@@ -27,9 +28,7 @@ export class ThemifySidebarItemComponent implements OnInit {
 
   expanded: boolean;
 
-  private _router = inject(Router);
-
-  constructor(private _sidebarService: SidebarService) {
+  constructor(private _sidebarService: SidebarService, private _router: Router) {
     this.item = {
       iconName: '',
       title: '',
@@ -39,15 +38,9 @@ export class ThemifySidebarItemComponent implements OnInit {
 
   ngOnInit(): void {
     this._router.events
-      .pipe(
-        filter(
-          (event): event is NavigationEnd => event instanceof NavigationEnd
-        )
-      )
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((route: NavigationEnd) => {
-        this._confirmUrlInChildren(this.item, route.url)
-          ? this._open()
-          : this._close();
+        this._confirmUrlInChildren(this.item, route.url) ? this._open() : this._close();
       });
 
     this._sidebarService.onSelectedItem$.subscribe((clickedItem) => {
@@ -131,8 +124,7 @@ export class ThemifySidebarItemComponent implements OnInit {
       }
 
       // If child.url is same as provided url
-      if (child.route && (child.route === url || url.includes(child.route)))
-        return true;
+      if (child.route && (child.route === url || url.includes(child.route))) return true;
     }
 
     return false;

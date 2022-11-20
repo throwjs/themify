@@ -10,11 +10,7 @@
 </ng-template>
 
 <ng-template #innerItem>
-  <themify-icon
-    [size]="20"
-    *ngIf="item.iconName"
-    [name]="item.iconName"
-  ></themify-icon>
+  <themify-icon [size]="20" *ngIf="item.iconName" [name]="item.iconName"></themify-icon>
   <span class="navigation__link-title">{{ item.title }}</span>
 </ng-template>
 

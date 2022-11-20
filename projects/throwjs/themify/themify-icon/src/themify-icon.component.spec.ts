@@ -8,9 +8,8 @@ describe('ThemifyIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ ThemifyIconComponent ]
-    })
-    .compileComponents();
+      imports: [ThemifyIconComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ThemifyIconComponent);
     component = fixture.componentInstance;

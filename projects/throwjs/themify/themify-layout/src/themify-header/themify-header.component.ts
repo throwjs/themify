@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
 
 import { CommonModule } from '@angular/common';
@@ -31,10 +26,7 @@ export class ThemifyHeaderComponent implements OnInit {
 
   themesEnum = ThemeEnum;
 
-  constructor(
-    private _configService: ConfigService,
-    private _sidebarService: SidebarService
-  ) {
+  constructor(private _configService: ConfigService, private _sidebarService: SidebarService) {
     this._expanded = true;
     this.isMobile = false;
     this.currentTheme = 'dark';
@@ -63,8 +55,7 @@ export class ThemifyHeaderComponent implements OnInit {
   }
 
   changeTheme(): void {
-    const theme =
-      this.currentTheme === ThemeEnum.DARK ? ThemeEnum.LIGTH : ThemeEnum.DARK;
+    const theme = this.currentTheme === ThemeEnum.DARK ? ThemeEnum.LIGTH : ThemeEnum.DARK;
     this._configService.setconfig({
       layout: { theme },
     });

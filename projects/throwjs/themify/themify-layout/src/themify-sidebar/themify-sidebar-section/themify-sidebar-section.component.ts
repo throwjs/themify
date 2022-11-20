@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[themify-sidebar-section]',
   standalone: true,
   imports: [ThemifyIconComponent],
@@ -16,12 +17,10 @@ import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
     class: 'navigation__section',
   },
 })
-export class ThemifySidebarSectionComponent implements OnInit {
+export class ThemifySidebarSectionComponent {
   @Input() sectionName: string;
 
   constructor() {
     this.sectionName = '';
   }
-
-  ngOnInit(): void {}
 }
