@@ -20,8 +20,7 @@
       }
 
       ul > li {
-        button,
-        a {
+        .link__item {
           padding: 10px 20px;
         }
 
@@ -42,12 +41,15 @@
           transform: rotate(90deg);
         }
       }
+
+      & > .link__item {
+        border-radius: 6px;
+      }
     }
 
-    a,
-    button {
+    .link__item {
       line-height: 1.45;
-      color: #d0d2d6;
+      // color: #d0d2d6;
       margin: 0 15px;
       padding: 10px 15px;
       display: flex;
@@ -92,18 +94,8 @@
     }
 
     &-active {
-      a,
-      button {
-        background: linear-gradient(118deg, #7367f0, rgba(115, 103, 240, 0.7));
-        box-shadow: 0 0 10px 1px rgb(115 103 240 / 70%);
+      .link__item {
         border-radius: 4px;
-      }
-    }
-
-    &-expanded > {
-      a,
-      button {
-        border-radius: 6px;
       }
     }
   }

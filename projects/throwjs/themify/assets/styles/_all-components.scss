@@ -1,0 +1,5 @@
+@use "../../themify-layout/src/themify-layout-theme.scss" as layout;
+
+@mixin all-component-themes($theme) {
+  @include layout.theme($theme);
+}

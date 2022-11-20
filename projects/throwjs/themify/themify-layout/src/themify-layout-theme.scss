@@ -1,0 +1,75 @@
+@use "sass:map";
+
+@mixin theme($theme) {
+  $main-background: map-get(
+    $map: $theme,
+    $key: main-background,
+  );
+
+  $primary-background: map-get(
+    $map: $theme,
+    $key: primary-background,
+  );
+
+  $text-color: map-get($theme, text-color);
+  $active-color: map-get($theme, active-color);
+  $primary: map-get($theme, primary);
+
+  #layout {
+    background-color: $main-background;
+
+    .header {
+      background-color: $primary-background;
+    }
+
+    .sidebar {
+      background-color: $primary-background;
+
+      &__logo {
+        svg {
+          g {
+            fill: $primary;
+          }
+        }
+
+        h2 {
+          color: $primary;
+        }
+      }
+
+      &__close {
+        button {
+          themify-icon {
+            color: $primary;
+          }
+        }
+      }
+
+      .navigation {
+        &__link {
+          .link__item {
+            color: $text-color;
+          }
+
+          &-expanded {
+            & > button.link__item {
+              background-color: $main-background;
+            }
+          }
+
+          &-active {
+            .link__item {
+              background: linear-gradient(
+                118deg,
+                #7367f0,
+                rgba(115, 103, 240, 0.7)
+              );
+              box-shadow: 0 0 10px 1px rgb(115 103 240 / 70%);
+              color: $active-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

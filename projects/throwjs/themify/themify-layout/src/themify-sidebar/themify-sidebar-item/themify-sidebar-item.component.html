@@ -1,10 +1,10 @@
 <ng-container *ngIf="item.route; else buttonRoute">
-  <a [routerLink]="item.route">
+  <a [routerLink]="item.route" class="link__item">
     <ng-container [ngTemplateOutlet]="innerItem"></ng-container>
   </a>
 </ng-container>
 <ng-template #buttonRoute>
-  <button>
+  <button class="link__item">
     <ng-container [ngTemplateOutlet]="innerItem"></ng-container>
   </button>
 </ng-template>

@@ -1,3 +1,7 @@
+@use "./themes/dark/dark-theme.scss" as dark;
+@use "./themes/ligth/ligth-theme.scss" as ligth;
+
+@import "./theme-bootstrap.scss";
 @import "./montserrat-font.css";
 
 html {
@@ -17,3 +21,18 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+@mixin dark-theme($theme) {
+  body.dark {
+    @include theme-init($theme);
+  }
+}
+
+@mixin ligth-theme($theme) {
+  body.ligth {
+    @include theme-init($theme);
+  }
+}
+
+@include dark-theme(dark.$dark-theme);
+@include ligth-theme(ligth.$ligth-theme);
