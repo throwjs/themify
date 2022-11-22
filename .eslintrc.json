@@ -49,6 +49,7 @@
         "@typescript-eslint/indent": "off",
         "no-plusplus": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
+        "no-console": "error",
         "prettier/prettier": [
           "error",
           {},
@@ -73,4 +74,3 @@
     }
   ]
 }
-
