@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:library": "ng build --project=@throwjs/themify",
+    "build:library": "ng build --configuration production --project=@throwjs/themify",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint --config projects/throwjs/themify/.eslintrc.json --ext .ts projects/throwjs/themify/",
