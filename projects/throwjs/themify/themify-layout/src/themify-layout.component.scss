@@ -1,3 +1,5 @@
+@import '../../assets/styles/utils/breakpoints';
+
 #layout {
   display: flex;
   height: 100vh;
@@ -5,8 +7,16 @@
 
   #content {
     flex: 1;
-    padding: 2rem;
+    padding: 1.25rem;
     overflow: auto;
+
+    @include md {
+      padding: 1.5rem;
+    }
+
+    @include xl {
+      padding: 2rem;
+    }
 
     &.content__wrapper {
       transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
