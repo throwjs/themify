@@ -1,0 +1,9 @@
+@use 'sass:map';
+
+@mixin theme($theme) {
+  $text-color: map-get($theme, text-color);
+
+  themify-icon {
+    color: $text-color;
+  }
+}

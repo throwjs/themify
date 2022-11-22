@@ -1,4 +1,6 @@
 .header {
+  box-sizing: border-box;
+  height: 64px;
   min-height: 30px;
   box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
   border-radius: 8px;
@@ -11,29 +13,5 @@
   &__profile {
     display: flex;
     gap: 10px;
-
-    .description {
-      display: flex;
-      flex-direction: column;
-      text-align: right;
-
-      &__name {
-        font-size: 14px;
-        font-weight: 500;
-      }
-    }
-
-    picture {
-      display: inline-block;
-      border-radius: 50%;
-      overflow: hidden;
-
-      img {
-        width: 40px;
-        height: 40px;
-        vertical-align: bottom;
-        max-width: 100%;
-      }
-    }
   }
 }

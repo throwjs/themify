@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuService } from '@throwjs/themify/services';
+import { MenuService, ProfileService } from '@throwjs/themify/services';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { MenuService } from '@throwjs/themify/services';
 export class AppComponent {
   title = 'dashboard';
 
-  constructor(private _menuService: MenuService) {
+  constructor(private _menuService: MenuService, private _profileService: ProfileService) {
     this._menuService.menu = [
       {
         sectionItems: [
@@ -254,5 +254,11 @@ export class AppComponent {
       //   ],
       // },
     ];
+
+    this._profileService.profile = {
+      // image: 'assets/images/avatar.jpg',
+      name: 'Carlos Morales',
+      position: 'Admin',
+    };
   }
 }
