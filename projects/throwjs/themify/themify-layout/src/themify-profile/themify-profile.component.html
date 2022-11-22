@@ -1,0 +1,21 @@
+<div class="profile__bell">
+  <button class="reset-button pointer">
+    <themify-icon [size]="20" name="bell"></themify-icon>
+  </button>
+</div>
+
+<div class="profile__description" *ngIf="profile$ | async as profile">
+  <div class="description">
+    <span class="description__name">{{ profile.name }}</span>
+    <small class="description__role">{{ profile.position }}</small>
+  </div>
+
+  <ng-container *ngIf="profile.image; else elseTemplate">
+    <picture>
+      <img [src]="profile.image" [alt]="profile.name" />
+    </picture>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="profile__name">C</div>
+  </ng-template>
+</div>

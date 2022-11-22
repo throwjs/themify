@@ -38,10 +38,8 @@ export class ThemifyLayoutComponent implements OnInit {
       .observe(['(min-width: 1200px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          console.log('Viewport width is 500px or greater!');
           this.isMobile = false;
         } else {
-          console.log('Viewport width is less than 500px!');
           this.isMobile = true;
         }
       });

@@ -1,4 +1,5 @@
-export interface IProfle {
+export interface IProfile {
   name: string;
-  logoUrl: string | null;
+  position: string;
+  image?: string;
 }
