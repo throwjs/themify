@@ -1,6 +1,7 @@
 @use './themes/dark/dark-theme.scss' as dark;
 @use './themes/ligth/ligth-theme.scss' as ligth;
 
+@import './common';
 @import './theme-bootstrap.scss';
 @import './montserrat-font.css';
 
