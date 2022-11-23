@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@mixin theme($theme) {
+  $text-color: map-get($theme, text-color);
+
+  $primary-background: map-get($theme, primary-background);
+
+  .themify-card {
+    background-color: $primary-background;
+    color: $text-color;
+  }
+}

@@ -1,7 +1,9 @@
 @use '../../themify-layout/src/themify-layout-theme.scss' as layout;
 @use '../../themify-icon/src/themify-icon-theme.scss' as icon;
+@use '../../themify-card/src/themify-card-theme.scss' as card;
 
 @mixin all-component-themes($theme) {
   @include layout.theme($theme);
   @include icon.theme($theme);
+  @include card.theme($theme);
 }
