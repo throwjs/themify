@@ -1,0 +1,15 @@
+:host {
+  $padding: 1.5rem;
+
+  display: inline-block;
+  width: calc(100% - #{$padding * 2});
+  border-radius: 8px;
+
+  &.themify-card {
+    padding: $padding;
+
+    p {
+      display: none;
+    }
+  }
+}

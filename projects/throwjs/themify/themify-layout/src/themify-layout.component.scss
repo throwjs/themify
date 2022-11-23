@@ -18,6 +18,18 @@
       padding: 2rem;
     }
 
+    .main__wrapper {
+      padding-top: 1.25rem;
+
+      @include md {
+        padding-top: 1.5rem;
+      }
+
+      @include xl {
+        padding-top: 2rem;
+      }
+    }
+
     &.content__wrapper {
       transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       margin-left: 80px;
