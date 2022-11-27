@@ -10,6 +10,13 @@ import { ThemifyIconModule } from './themify-icon.module';
     [style.height]="size + 'px'"
     [name]="name"
   ></i-feather>`,
+  styles: [
+    `
+      i-feather {
+        display: block;
+      }
+    `,
+  ],
 })
 export class ThemifyIconComponent {
   @Input() name: string;

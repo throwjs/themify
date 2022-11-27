@@ -1,24 +1,17 @@
 <header class="header">
-  <button (click)="toggleSidebar()">
-    <themify-icon name="menu"></themify-icon>
+  <button class="reset-button pointer" (click)="toggleSidebar()">
+    <themify-icon [size]="20" name="menu"></themify-icon>
   </button>
-  <span>search</span>
 
-  <button (click)="changeTheme()">
-    <ng-container *ngIf="currentTheme === themesEnum.DARK; else ligthTheme">
-      <themify-icon name="sun"></themify-icon>
-    </ng-container>
-    <ng-template #ligthTheme>
-      <themify-icon name="moon"></themify-icon>
-    </ng-template>
-  </button>
   <div class="header__profile">
-    <div class="description">
-      <span class="description__name">John Doe</span>
-      <small class="description__role">Admin</small>
-    </div>
-    <picture>
-      <img src="assets/images/avatar.jpg" alt="John Doe avatar" />
-    </picture>
+    <button class="reset-button pointer" (click)="changeTheme()">
+      <ng-container *ngIf="currentTheme === themesEnum.DARK; else ligthTheme">
+        <themify-icon [size]="20" name="sun"></themify-icon>
+      </ng-container>
+      <ng-template #ligthTheme>
+        <themify-icon [size]="20" name="moon"></themify-icon>
+      </ng-template>
+    </button>
+    <themify-profile></themify-profile>
   </div>
 </header>

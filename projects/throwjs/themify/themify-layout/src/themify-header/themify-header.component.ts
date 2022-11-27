@@ -3,14 +3,15 @@ import { ThemifyIconComponent } from '@throwjs/themify/themify-icon';
 
 import { CommonModule } from '@angular/common';
 import { ConfigService } from '@throwjs/themify/core';
-import { IConfigLayoutTheme, ThemeEnum } from '@throwjs/themify/interfaces';
+import { IConfigLayoutTheme, IProfile, ThemeEnum } from '@throwjs/themify/interfaces';
 import { SidebarService } from '@throwjs/themify/services';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
+import { ThemifyProfileComponent } from '../themify-profile';
 
 @Component({
   selector: 'themify-header',
   standalone: true,
-  imports: [CommonModule, ThemifyIconComponent],
+  imports: [CommonModule, ThemifyIconComponent, ThemifyProfileComponent],
   templateUrl: './themify-header.component.html',
   styleUrls: ['./themify-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +23,8 @@ export class ThemifyHeaderComponent implements OnInit {
 
   theme$: Observable<IConfigLayoutTheme>;
 
+  profile$: Observable<IProfile>;
+
   currentTheme: IConfigLayoutTheme;
 
   themesEnum = ThemeEnum;
@@ -31,19 +34,19 @@ export class ThemifyHeaderComponent implements OnInit {
     this.isMobile = false;
     this.currentTheme = 'dark';
     this.theme$ = new Observable();
+    this.profile$ = new Observable();
   }
 
   ngOnInit(): void {
     const sidebarOptions = this._configService.config?.layout.sidebar;
     if (sidebarOptions) this._expanded = sidebarOptions.collapsed;
 
-    this._configService.configObservable$
-      .pipe(tap((theme) => (this.currentTheme = theme.layout.theme)))
-      .subscribe(console.log);
+    this._configService.configObservable$.subscribe(
+      (theme) => (this.currentTheme = theme.layout.theme)
+    );
   }
 
   toggleSidebar(): void {
-    console.log(this.isMobile);
     if (!this.isMobile) {
       this._expanded = !this._expanded;
       this._configService.setconfig({
