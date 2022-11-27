@@ -1,0 +1,51 @@
+$height: 52px;
+
+:host {
+  display: inline-block;
+  height: $height;
+  position: relative;
+  background-color: red;
+}
+
+.themify-input {
+  &__wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    z-index: -1;
+
+    & > div {
+      height: $height;
+    }
+
+    &-start {
+      width: 7px;
+    }
+
+    &-mid {
+      width: 180px;
+    }
+
+    &-end {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    height: $height;
+    display: flex;
+    align-items: center;
+
+    input {
+      font-size: 1.25rem;
+      font-family: inherit;
+      line-height: 1;
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
