@@ -17,12 +17,10 @@
     "projects/throwjs/themify/**/*.{ts,scss,html}": [
       "pnpm run prettier",
       "pnpm run lint"
+    ],
+    "projects/throwjs/themify/**/*.scss": [
+      "pnpm run prettier"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "private": true,
   "dependencies": {
